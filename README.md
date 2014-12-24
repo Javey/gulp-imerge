@@ -10,6 +10,8 @@ npm install gulp-imerge --save-dev
 
 ## Usage
 
+[gulpfile.js](https://github.com/Javey/gulp-imerge/blob/master/test/gulpfile.js)示例
+
 ```js
 var gulp = require('gulp'),
     imerge = require('../src/index.js'),

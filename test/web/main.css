@@ -1,0 +1,9 @@
+h1 {
+    color: red;
+    background: url('/edit.png');
+    merge: test;
+}
+h2 {
+    background-image: url('./edit1.png');
+    merge: test;
+}

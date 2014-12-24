@@ -14,7 +14,7 @@ npm install gulp-imerge --save-dev
 
 ```js
 var gulp = require('gulp'),
-    imerge = require('../src/index.js'),
+    imerge = require('gulp-imerge'),
     header = require('gulp-header');
 
 gulp.task('default', function() {

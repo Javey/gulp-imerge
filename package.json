@@ -1,13 +1,13 @@
 {
   "name": "gulp-imerge",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "CSS sprite tool using gulp.",
   "main": "src/index.js",
   "author": "Javey <jiawei23716@sina.com>",
   "dependencies": {
     "through2": "~0.6.3",
     "gulp-util": "~3.0.1",
-    "imerge": "~0.2.1",
+    "imerge": "~0.3.0",
     "lodash": "~2.4.1",
     "bluebird": "~2.4.2"
   },

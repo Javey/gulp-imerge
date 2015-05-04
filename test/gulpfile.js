@@ -9,7 +9,8 @@ var gulp = require('gulp'),
     header = require('gulp-header');
 
 gulp.task('default', function() {
-    return gulp.src('./web/**/*.css')
+    //return gulp.src('./web/**/*.css')
+    return gulp.src('./web/table.css')
         .pipe(imerge({
             spriteTo: './build/sprite',
             sourceContext: './web',

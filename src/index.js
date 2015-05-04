@@ -58,7 +58,7 @@ module.exports = function(options, pathFilter) {
                 function(data) {
                     iMerge.kvData(data);
                     files.forEach(function(file) {
-                        var iReplace = new IMerge.IReplace(file.path, data, options);
+                        var iReplace = new IMerge.IReplace(file.path, data, options, iMerge.pathFilter);
                         file.contents = new Buffer(iReplace.replaceContent(file.contents.toString()));
                         this.push(file)
                     }.bind(this));

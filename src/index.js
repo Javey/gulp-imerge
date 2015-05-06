@@ -6,37 +6,17 @@
 
 var through = require('through2'),
     gutil = require('gulp-util'),
-    path = require('path'),
     IMerge = require('imerge');
 
 const PLUGIN_NAME = 'gulp-imerge';
 
-var extend = function(object, properties) {
-    for (var i in properties) {
-        object[i] = properties[i];
-    }
-    return object;
-};
-
 module.exports = function(options, pathFilter) {
-    options = extend({
-        spriteTo: '',
-        sourceContext: '',
-        outputContext: '',
-        defaults: {
-            padding: null
-        },
-        options: {
-            all: false
-        }
-    }, options || {});
+    var iMerge = new IMerge.IMerge(options, pathFilter);
 
-    var iMerge = new IMerge.IMerge(options, pathFilter),
-        iParser = new IMerge.IParser(null, {
-            webroot: options.sourceContext,
-            defaults: options.defaults,
-            options: options.options
-        });
+    options = iMerge.options;
+    pathFilter = iMerge.pathFilter;
+
+    var iParser = new IMerge.IParser(null, options);
 
     // 保存所有文件，在分析完后，再往下传
     var files = [];
@@ -58,7 +38,7 @@ module.exports = function(options, pathFilter) {
                 function(data) {
                     iMerge.kvData(data);
                     files.forEach(function(file) {
-                        var iReplace = new IMerge.IReplace(file.path, data, options, iMerge.pathFilter);
+                        var iReplace = new IMerge.IReplace(file.path, data, options, pathFilter);
                         file.contents = new Buffer(iReplace.replaceContent(file.contents.toString()));
                         this.push(file)
                     }.bind(this));
